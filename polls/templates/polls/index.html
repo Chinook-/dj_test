@@ -1,0 +1,11 @@
+
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <!-- looks in urls.py to match hyperlink / now can set "polls/specifics/12/" in urls.py instead of here / also use namespace "polls"-->
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
